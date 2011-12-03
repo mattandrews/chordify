@@ -1,0 +1,15 @@
+{
+    "AppDescription" : "Find the guitar chords/tabs for the song you're currently playing",
+    "AppIcon" : {
+        "18x18" : "img/icon_18.png",
+        "64x64" : "img/icon_64.png",
+        "128x128" : "img/icon_128.png"
+    },
+    "AppName" : {
+        "en" : "Chordify"
+    },
+    "BundleIdentifier" : "appstore",
+    "BundleType" : "Application",
+    "RequiredInterface" : "1",
+    "VendorIdentifier" : "com.mattandrews"
+}
