@@ -1,12 +1,116 @@
 <!doctype html>
 <html>
     <head>
-        <link rel="stylesheet" href="sp://import/css/adam.css">
-            <title>Chordify</title>
+        <link rel="stylesheet" href="sp://import/css/adam.css" />
+        <link rel="stylesheet" href="sp://import/css/api.css" />
+        <title>Chordify</title>
+        <script type="text/javascript" src="sp://appstore/js/jquery.js"></script>
+        <style>
+        #loader {
+            display: auto;
+            width: 30px;
+            height: 30px;
+            background-image: url(sp://appstore/img/loading_indicator.png);
+            -webkit-animation-name: chordify-throbber;
+            -webkit-animation-duration: 0.7s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: step-start;
+            -webkit-animation-fill-mode: forwards;
+        }
+        
+        @-webkit-keyframes chordify-throbber {
+           0% { background-position: 0px 0px;}
+           8% { background-position: -30px 0px;}
+           17% { background-position: -60px 0px;}
+           25% { background-position: -90px 0px;}
+           33% { background-position: -120px 0px;}
+           42% { background-position: -150px 0px;}
+           50% { background-position: -180px 0px;}
+           58% { background-position: -210px 0px;}
+           67% { background-position: -240px 0px;}
+           75% { background-position: -270px 0px;}
+           83% { background-position: -300px 0px;}
+           92% { background-position: -330px 0px;}
+           100% { background-position: 0px 0px;}
+        }
+        
+        body {
+            font-family: "Lucida Grande", helvetica, georgia;
+        }
+        
+        #container {
+            width: 550px;
+            margin: 20px auto;
+            background: #333;    
+            padding: 10px 20px;
+            border: 4px solid #666;
+            border-top: none;
+            border-bottom: none;
+            position: relative;
+        }
+        
+        #content table {
+            margin-bottom: 20px;
+        }
+        
+        #header h2 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+            border-bottom: 1px dotted #666;
+        }
+        
+        #header h3 {
+            color: #ccc;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        /* chords */
+        .cl {
+            font-size: 14px;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        /* lyrics */
+        .tl {
+            font-size: 14px;
+            font-weight: normal;
+        }
+        
+        #content {
+            word-wrap: break-word !important;
+        }
+        #footer {
+            border-top: 1px solid #666;
+            padding-top: 10px;
+            margin-top: 20px;
+            color: #ccc;
+            font-weight: bold;
+        }
+        #bar {
+            background: #82b919;
+            height: 35px;
+            border-bottom: 4px solid #6e9d16;
+        }
+        
+        #logo {
+            position: absolute;
+            top: -56px;
+            left: -51px;
+        }
+        </style>
     </head>
     <body onload="sp = getSpotifyApi(1); chordify = sp.require('js/chordify'); chordify.init();">
-        
-        <div id="header">hello, world!</div>
-        
+        <div id="bar"></div>
+        <div id="container">
+            <img id="logo" src="sp://appstore/img/logo.png" />
+            <div id="header"></div>
+            <div id="loader"></div>
+            <p id="pleasewait">Please wait, loading chords...</p>
+            <div id="content"></div>
+            <div id="footer"><p>All chords/tabs shamelessly stolen from <a href="http://www.chordie.com">chordie</a> &ndash; many thanks. </p>
+        </div>
     </body>
 </html>
