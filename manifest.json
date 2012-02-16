@@ -15,7 +15,7 @@
     "RequiredPermissions" : [
         "http://localhost",
         "http://127.0.0.1",
-        "http://www.threechords.org",
-        "http://dev.matt.org"
+        "http://dev.matt.org",
+        "http://mattandrews.info"
     ]
 }

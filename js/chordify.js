@@ -41,7 +41,7 @@ chordify.fetch_top_songs = function() {
     $.ajax({
          type: 'post',
          dataType: 'json',
-         url: "http://dev.matt.org/spotify/top.php",
+         url: "http://mattandrews.info/spotify/top.php",
          success: function(response){
             for(var i in response) {
                 var song = response[i];
@@ -51,7 +51,7 @@ chordify.fetch_top_songs = function() {
                         type: 'post',
                         dataType: 'json',
                         data: 'title=' + escape(song.title) + '&artist=' + escape(song.artist), 
-                        url: "http://dev.matt.org/spotify/song.php",
+                        url: "http://mattandrews.info/spotify/song.php",
                         success: function(response){
                             console.log("got song");
                             songs[i] = response;
@@ -74,7 +74,7 @@ chordify.get_spotify_track = function(artist, title) {
          type: 'post',
          dataType: 'json',
          data: 'title=' + escape(title) + '&artist=' + escape(artist), 
-         url: "http://dev.matt.org/spotify/song.php",
+         url: "http://mattandrews.info/spotify/song.php",
          success: function(response){
             console.log("got", response);
             return response;
@@ -121,7 +121,7 @@ chordify.get_chords = function(artist, title) {
     //$("html,body").animate({ scrollTop: 0}, 0 );
     chordify.current_ajax_request = $.ajax({
          type: 'post',
-         url: "http://dev.matt.org/spotify/data.php",
+         url: "http://mattandrews.info/spotify/data.php",
          data: 'artist=' + escape(artist) + '&title=' + escape(title),
          success: function(response){
             $('#loader').hide();
